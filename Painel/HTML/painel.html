@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário + LocalStorage (com Paginação)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/CSS/painel.css">
+</head>
+<body>
+  <div class="card" id="app">
+    <header>
+      <h1>Formulário (LocalStorage)</h1>
+      <div class="row header-controls">
+        <div class="field">
+          <label for="userId">ID do usuário</label>
+          <input id="userId" type="number" min="1" placeholder="Ex.: 1" />
+        </div>
+        <div class="header-buttons">
+          <button class="ghost" id="btnLoad">Carregar</button>
+          <button class="ghost" id="btnClear">Limpar</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="body">
+      <div class="row">
+        <div class="field">
+          <label for="name">Nome</label>
+          <input id="name" type="text" placeholder="Nome completo" />
+        </div>
+        <div class="field">
+          <label for="username">Usuário</label>
+          <input id="username" type="text" placeholder="usuario" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" placeholder="email@exemplo.com" />
+        </div>
+        <div class="field">
+          <label for="phone">Telefone</label>
+          <input id="phone" type="tel" placeholder="(00) 00000-0000" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="website">Website</label>
+          <input id="website" type="url" placeholder="https://exemplo.com" />
+        </div>
+        <div class="field">
+          <label for="company">Empresa</label>
+          <input id="company" type="text" placeholder="Razão social" />
+        </div>
+      </div>
+
+      <div class="status" id="status"></div>
+      <div class="muted">Os dados são salvos no seu navegador (localStorage).</div>
+    </div>
+
+    <div class="actions">
+      <button class="secondary" id="btnCreate">Criar</button>
+      <button class="primary" id="btnSave">Salvar (atualizar)</button>
+      <button class="danger" id="btnDelete">Excluir</button>
+    </div>
+
+    <section class="list">
+      <div class="list-header">
+        <h2>Registros</h2>
+        <div class="results-control">
+          <label for="pageSize">Resultados por página</label>
+          <select id="pageSize">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="tblUsers">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Usuário</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Website</th>
+              <th>Empresa</th>
+              <th style="width:120px">Ações</th>
+            </tr>
+          </thead>
+          <tbody><!-- linhas renderizadas via JS --></tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <button id="btnPrev" class="ghost">&laquo; Anterior</button>
+        <span id="pageInfo">Página 1 de 1</span>
+        <button id="btnNext" class="ghost">Próxima &raquo;</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/JS/graphQL.js"></script>
+</body>
+</html>
